@@ -4,20 +4,13 @@
 
 ## Project Overview
 
-This project analyzes sales data from a global electronics retailer to identify
-revenue trends, product performance, sales-channel distribution, seasonality,
-and geographic patterns.
+This project analyzes sales data from a global electronics retailer to identify revenue trends, product performance, sales-channel distribution, seasonality, and geographic patterns.
 
-The data was cleaned, transformed, and analyzed using Python and Pandas.
-An interactive dashboard was then developed in Power BI to present the main
-business indicators and insights.
+The data was cleaned, transformed, and analyzed using **Python**, **Pandas**, and **Matplotlib**. An interactive dashboard was then developed in **Power BI**, with **DAX** measures used to present the main business indicators and insights.
 
 The project covers sales data from 2016 to February 2021.
 
-> Note: 2021 contains only partial data through February 20, 2021 and should
-> not be directly compared with complete years.
-
----
+> **Note:** 2021 contains only partial data through February 20, 2021 and should not be directly compared with complete years.
 
 ## Business Questions
 
@@ -30,8 +23,6 @@ The analysis was designed to answer the following questions:
 - How does online revenue compare with physical-store revenue?
 - Which countries and physical stores generate the most revenue?
 
----
-
 ## Tools and Technologies
 
 - Python
@@ -43,11 +34,14 @@ The analysis was designed to answer the following questions:
 - Git
 - GitHub
 
----
+## Data Source
 
-## Dataset
+The project uses the **Global Electronics Retailer** dataset from the Maven Analytics Data Playground.
 
-The project uses the Global Electronics Retailer dataset.
+- **Dataset:** [Global Electronics Retailer](https://mavenanalytics.io/data-playground/global-electronics-retailer)
+- **Source:** Microsoft
+- **License:** Public Domain
+- **Dataset size:** 62,884 transaction records across multiple related tables
 
 The original dataset contains information about:
 
@@ -57,9 +51,9 @@ The original dataset contains information about:
 - Customers
 - Exchange rates
 
-A data dictionary is also included in the `docs` directory.
+A data dictionary is included in the `docs` directory.
 
-The main datasets used in the analysis were:
+The main source tables used directly in the Python analysis were:
 
 - `Sales.csv`
 - `Products.csv`
@@ -68,8 +62,6 @@ The main datasets used in the analysis were:
 The processed dataset used in Power BI is available at:
 
 `data/processed/sales_cleaned.csv`
-
----
 
 ## Data Preparation
 
@@ -87,9 +79,7 @@ The main data preparation steps included:
 - Identification of online and physical-store sales
 - Export of the cleaned dataset for Power BI
 
-The final analytical dataset contains approximately 62,000 sales line items.
-
----
+The final analytical dataset contains **62,884 sales line items**.
 
 ## Key Metrics
 
@@ -102,64 +92,53 @@ The final analytical dataset contains approximately 62,000 sales line items.
 | Average Order Value | $2.12K |
 | Online Revenue Share | 20.45% |
 
----
-
 ## Key Insights
 
 ### Revenue Trend
 
-Revenue increased between 2016 and 2019, reaching its highest level in 2019.
+Revenue increased between 2016 and 2019, reaching its highest level in **2019**.
 
 A significant decline was observed in 2020.
 
-The 2021 result represents only a partial year and should therefore not be
-directly compared with previous full-year results.
+The 2021 result represents only a partial year and should therefore not be directly compared with previous full-year results.
 
 ### Product Categories
 
-Computers generated the highest revenue among all product categories, followed
-by Home Appliances.
+**Computers** generated the highest revenue among all product categories, followed by **Home Appliances**.
 
-Games and Toys generated the lowest revenue during the analyzed period.
+**Games and Toys** generated the lowest revenue during the analyzed period.
 
 ### Product Performance
 
 Desktop computers dominated the ranking of highest-revenue products.
 
-The analysis also showed that products with lower sales volume can still
-generate significant revenue when their unit price is substantially higher.
+The analysis also showed that products with lower sales volume can still generate significant revenue when their unit price is substantially higher.
 
 ### Seasonality
 
-Using only complete years from 2016 to 2020, December generated the highest
-accumulated revenue.
+Using only complete years from 2016 to 2020, **December** generated the highest accumulated revenue.
 
-February and January also performed strongly, while March and especially April
-showed weaker results.
+February and January also performed strongly, while March and especially April showed weaker results.
 
 ### Sales Channels
 
-Physical stores accounted for approximately 79.55% of total revenue.
+Physical stores accounted for approximately **79.55%** of total revenue.
 
-Online sales represented approximately 20.45% of total revenue.
+Online sales represented approximately **20.45%** of total revenue.
 
-This indicates that physical retail remained the company's primary sales
-channel during the analyzed period.
+This indicates that physical retail remained the company's primary sales channel during the analyzed period.
 
 ### Geographic Performance
 
-The United States was the strongest market among physical-store locations.
+The **United States** was the strongest market among physical-store locations.
 
 Nine of the ten highest-revenue physical stores were located in the United States.
 
-The highest-performing individual store was located in Nevada.
-
----
+The highest-performing individual store was located in **Nevada**.
 
 ## Power BI Dashboard
 
-The Power BI dashboard provides an interactive view of the main business
-indicators and allows users to filter the analysis by:
+The Power BI dashboard provides an interactive view of the main business indicators and allows users to filter the analysis by:
 
 - Year
 - Country
@@ -178,9 +157,7 @@ The dashboard includes:
 - Top 10 Products by Revenue
 - Revenue by Sales Channel
 
-![Power BI Dashboard](images/dashboard.png)
-
----
+The dashboard shown at the top of this README was built from the processed dataset exported by the Python notebook.
 
 ## Project Structure
 
@@ -188,6 +165,7 @@ The dashboard includes:
 global-electronics-sales-analysis/
 │
 ├── README.md
+├── requirements.txt
 ├── .gitignore
 │
 ├── notebooks/
@@ -209,3 +187,48 @@ global-electronics-sales-analysis/
 │
 └── images/
     └── dashboard.png
+```
+
+## How to Run the Project
+
+Clone the repository:
+
+```bash
+git clone https://github.com/ChaPepperDev/global-electronics-sales-analysis.git
+```
+
+Navigate to the project directory:
+
+```bash
+cd global-electronics-sales-analysis
+```
+
+Install the Python dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Launch Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+Open:
+
+```text
+notebooks/global_electronics_sales_analysis.ipynb
+```
+
+Run all cells from top to bottom.
+
+The notebook automatically reads the source datasets from `data/raw/` and exports the processed analytical dataset to `data/processed/sales_cleaned.csv`.
+
+## Conclusion
+
+This project demonstrates an end-to-end data analytics workflow, from raw-data inspection and cleaning to exploratory analysis, business KPI development, and interactive visualization.
+
+The analysis identified **Computers** as the strongest product category, showed that revenue peaked in **2019**, highlighted clear seasonal patterns, and confirmed the continued dominance of physical-store sales.
+
+The project also demonstrates practical use of **Python, Pandas, Matplotlib, Power BI, DAX, Git, and GitHub** in a reproducible portfolio project.
